@@ -1,7 +1,5 @@
 streamlit
 numpy
 pandas
-warnings
 xgboost
 joblib
-os
