@@ -69,7 +69,7 @@ if st.button("🚀 Predict"):
         pt_pred_show = new_patient_encoded[['SENSITIVITY_ANTIBIOTIC', 'SENSITIVITY_INTERPRETION', 'PROB_SENSITIVE', 'PROB_RESISTANT']]
         
         # Hiển thị kết quả
-        st.subheader("📋 Kết quả dự đoán")
+        st.subheader("📋 Report:")
         st.dataframe(pt_pred_show)
 
     except Exception as e:
