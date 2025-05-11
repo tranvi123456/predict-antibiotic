@@ -27,7 +27,13 @@ st.markdown("Enter the patient's details below to predict antibiotic sensitivity
 # Nhập từng thông tin
 visible_patient_id = st.number_input("🆔 HN:")
 sex_rcd = st.selectbox("👤 Sex:", options=["M", "F"])
-date_of_birth = st.date_input("🎂 Date of Birth", value=date(2000, 1, 1), format="YYYY-MM-DD")
+date_of_birth = st.date_input(
+    "🎂 Date of Birth",
+    value=date(2000, 1, 1),
+    min_value=date(1920, 1, 1),
+    max_value=today,
+    format="YYYY-MM-DD"
+)
 df_doctor = pd.read_excel("dimension.xlsx", sheet_name="order_owner")
 doctor_list = df_doctor["order_owner"].dropna().unique().tolist()
 order_owner = st.selectbox("👨‍⚕️ Order Owner:", options=doctor_list)
@@ -69,8 +75,8 @@ if st.button("🚀 Predict"):
         pt_pred_show = new_patient_encoded[['SENSITIVITY_ANTIBIOTIC', 'SENSITIVITY_INTERPRETION', 'PROB_SENSITIVE', 'PROB_RESISTANT']]
         
         # Hiển thị kết quả
-        st.subheader("📋 Report:")
+        st.subheader("📋 Report")
         st.dataframe(pt_pred_show)
 
     except Exception as e:
-        st.error(f"Lỗi khi dự đoán: {e}")
+        st.error(f"Got an error in prediction: {e}")
