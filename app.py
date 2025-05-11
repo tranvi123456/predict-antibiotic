@@ -27,6 +27,7 @@ st.markdown("Enter the patient's details below to predict antibiotic sensitivity
 # Nhập từng thông tin
 visible_patient_id = st.number_input("🆔 HN:")
 sex_rcd = st.selectbox("👤 Sex:", options=["M", "F"])
+today = date.today()
 date_of_birth = st.date_input(
     "🎂 Date of Birth",
     value=date(2000, 1, 1),
