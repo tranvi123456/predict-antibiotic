@@ -4,3 +4,4 @@ pandas
 xgboost
 joblib
 scikit-learn
+openpyxl
